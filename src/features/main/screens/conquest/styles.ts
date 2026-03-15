@@ -1,215 +1,273 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Colors } from '@/theme/colors';
 
-const { width, height } = Dimensions.get('window');
-
-// ─── Styles ───────────────────────────────────────────────────────────────────
 export const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: Colors.bgPage },
+  container: {
+    flex: 1,
+    backgroundColor: Colors.bgPage,
+  },
 
   // Header
   header: {
-    paddingHorizontal: 18, paddingTop: 10, paddingBottom: 36,
+    paddingHorizontal: 18,
+    paddingBottom: 36,
     zIndex: 2,
+    backgroundColor: Colors.purple800,
   },
-  statsRow: {
-    flexDirection: 'row', alignItems: 'center',
-    justifyContent: 'space-between', marginBottom: 16,
+  headerInner: {
+    backgroundColor: 'transparent',
+    borderBottomWidth: 0,
+    paddingHorizontal: 0,
   },
-  backBtn: {
-    width: 36, height: 36, borderRadius: 18,
-    backgroundColor: 'rgba(255,255,255,0.18)',
-    alignItems: 'center', justifyContent: 'center',
-    borderWidth: 1, borderColor: 'rgba(255,255,255,0.22)',
+  progTrack: {
+    flex: 1,
+    height: 6,
+    backgroundColor: 'rgba(255,255,255,0.15)',
+    borderRadius: 3,
+    overflow: 'hidden',
   },
-  backIcon: { width: 18, height: 18 },
-  comboRow: { flexDirection: 'row', gap: 8, alignItems: 'center' },
-  comboBadge: {
-    backgroundColor: Colors.goldSoft,
-    borderRadius: 12, paddingHorizontal: 10, paddingVertical: 5,
-    borderWidth: 1.5, borderColor: Colors.gold,
+  progFill: {
+    height: '100%',
+    backgroundColor: Colors.gold,
+    borderRadius: 3,
   },
-  xpPill: {
-    backgroundColor: 'rgba(245,158,11,0.2)',
-    borderRadius: 12, paddingHorizontal: 10, paddingVertical: 5,
-    borderWidth: 1, borderColor: Colors.gold + '55',
-  },
-  titleRow: { alignItems: 'center', marginBottom: 14 },
-  eyebrow: { letterSpacing: 2.5, fontSize: 10, marginBottom: 4 },
-  journeyName: { letterSpacing: 2 },
-  progRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  progTrack: { flex: 1, height: 7, backgroundColor: 'rgba(255,255,255,0.15)', borderRadius: 4, overflow: 'hidden' },
-  progFill: { height: '100%', backgroundColor: Colors.gold, borderRadius: 4 },
 
-  // Mystery card (overlaps header)
+  // Mystery card
   mystCard: {
     marginHorizontal: 16,
-    marginTop: -22,
+    marginTop: -20,
     backgroundColor: Colors.white,
-    borderRadius: 22,
-    borderWidth: 1.5,
+    borderRadius: 20,
+    borderWidth: 1,
     borderColor: Colors.borderPurple,
     padding: 14,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 14,
+    gap: 13,
     zIndex: 5,
-    shadowColor: Colors.purple600,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.18,
+    shadowColor: Colors.purple700,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.12,
     shadowRadius: 18,
-    elevation: 10,
+    elevation: 8,
   },
-  mystSilZone: {
-    width: 58, height: 58,
-    alignItems: 'center', justifyContent: 'center',
-    position: 'relative',
+  navDot: {
+    flex: 1,
+    maxWidth: 22,
+    height: 4,
+    borderRadius: 2,
   },
-  mystSilInner: {
-    width: 48, height: 48, borderRadius: 16,
-    backgroundColor: Colors.purple100,
-    alignItems: 'center', justifyContent: 'center',
-    borderWidth: 2, borderColor: Colors.purple200,
-    zIndex: 1,
-  },
-  mystSilIcon: { fontSize: 24 },
-  mystPulse1: {
-    position: 'absolute', width: 56, height: 56, borderRadius: 20,
-    borderWidth: 1.5, borderColor: Colors.purple300, opacity: 0.4,
-  },
-  mystPulse2: {
-    position: 'absolute', width: 64, height: 64, borderRadius: 24,
-    borderWidth: 1, borderColor: Colors.purple300, opacity: 0.2,
-  },
-  mystTagRow: { marginBottom: 4 },
-  mystTag: {
-    alignSelf: 'flex-start',
-    backgroundColor: Colors.goldSoft,
-    borderRadius: 8, paddingHorizontal: 8, paddingVertical: 2,
-    borderWidth: 1, borderColor: Colors.gold + '55',
-  },
-  navPill: { flex: 1, maxWidth: 24, height: 5, borderRadius: 3 },
 
-  // Content
+  // Content scroll
   content: {
-    flex: 1, paddingHorizontal: 16, paddingTop: 14,
+    paddingHorizontal: 16,
+    paddingTop: 14,
+    paddingBottom: 24,
     gap: 12,
   },
 
   // Timer
-  timerRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  timerIconBox: {
-    width: 34, height: 34, borderRadius: 17,
-    backgroundColor: Colors.purple100,
-    alignItems: 'center', justifyContent: 'center',
+  timerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
   },
-  timerIcon: { width: 16, height: 16 },
-  timerDigits: { letterSpacing: 2, minWidth: 68 },
-  timerTrack: { flex: 1, height: 5, backgroundColor: Colors.purple100, borderRadius: 3, overflow: 'hidden' },
-  timerFill: { height: '100%', borderRadius: 3 },
+  timerTrack: {
+    flex: 1,
+    height: 5,
+    backgroundColor: Colors.purple100,
+    borderRadius: 3,
+    overflow: 'hidden',
+  },
+  timerFill: {
+    height: '100%',
+    borderRadius: 3,
+  },
 
   // Word card
   wordCard: {
+    minHeight: 240,
     backgroundColor: Colors.white,
-    borderRadius: 24,
-    borderWidth: 1.5,
+    borderRadius: 22,
+    borderWidth: 1,
     borderColor: Colors.borderPurple,
-    paddingVertical: 18, paddingHorizontal: 18,
-    flex: 1,
-    position: 'relative', overflow: 'hidden',
+    padding: 18,
     shadowColor: Colors.purple500,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1, shadowRadius: 14, elevation: 5,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.07,
+    shadowRadius: 10,
+    elevation: 3,
+    overflow: 'hidden',
   },
   cardBlob1: {
-    position: 'absolute', top: -40, right: -40,
-    width: 110, height: 110, borderRadius: 55,
-    backgroundColor: Colors.purple100, opacity: 0.6,
+    position: 'absolute',
+    top: -40,
+    right: -40,
+    width: 110,
+    height: 110,
+    borderRadius: 55,
+    backgroundColor: Colors.purple100,
+    opacity: 0.6,
   },
   cardBlob2: {
-    position: 'absolute', bottom: -30, left: -30,
-    width: 80, height: 80, borderRadius: 40,
-    backgroundColor: Colors.pinkSoft, opacity: 0.4,
+    position: 'absolute',
+    bottom: -30,
+    left: -30,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: Colors.pinkSoft,
+    opacity: 0.4,
   },
-
   memRow: {
-    flexDirection: 'row', alignItems: 'center',
-    justifyContent: 'space-between', marginBottom: 14,
-    position: 'relative', zIndex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 14,
+    position: 'relative',
+    zIndex: 1,
   },
-  memEyebrow: {
-    fontSize: 9, letterSpacing: 2, marginBottom: 5,
-  },
-  memDot: { width: 11, height: 11, borderRadius: 6 },
   memBadge: {
-    borderRadius: 8, paddingHorizontal: 8, paddingVertical: 3,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
   },
-
-  wordCenter: { alignItems: 'center', flex: 1, justifyContent: 'center', position: 'relative', zIndex: 1 },
-  wordMain: { textAlign: 'center', letterSpacing: 0.5, marginBottom: 4 },
-  wordPhonetic: { textAlign: 'center', fontStyle: 'italic', marginBottom: 16 },
+  memBadgeText: {
+    fontSize: 10,
+    fontWeight: '800',
+  },
+  divider: {
+    height: 1,
+    backgroundColor: Colors.borderLight,
+    marginBottom: 14,
+  },
+  wordCenter: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    zIndex: 1,
+  },
   soundBtn: {
-    width: 40, height: 40, borderRadius: 20,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     backgroundColor: Colors.purple100,
-    alignItems: 'center', justifyContent: 'center',
-    marginBottom: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  soundIcon: { width: 18, height: 18 },
-
-  inputRow: {
-    borderBottomWidth: 2, borderBottomColor: Colors.purple200,
-    paddingBottom: 6, position: 'relative', zIndex: 1,
+  inputWrap: {
+    marginTop: 16,
+    borderBottomWidth: 2,
+    borderBottomColor: Colors.purple200,
+    paddingBottom: 6,
+    position: 'relative',
+    zIndex: 1,
   },
-  textInput: {
-    fontSize: 16, fontFamily: 'Roboto-Regular',
-    color: Colors.textDark, paddingVertical: 6,
+  input: {
+    fontSize: 16,
+    fontFamily: 'Roboto-Regular',
+    color: Colors.textDark,
     textAlign: 'center',
+    paddingVertical: 4,
   },
 
   // CTA button
   ctaBtn: {
-    height: 56, borderRadius: 28,
-    flexDirection: 'row',
-    alignItems: 'center', justifyContent: 'center', gap: 8,
+    height: 54,
+    borderRadius: 27,
+    alignItems: 'center',
+    justifyContent: 'center',
     shadowColor: Colors.purple700,
     shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.4, shadowRadius: 14, elevation: 7,
+    shadowOpacity: 0.3,
+    shadowRadius: 14,
+    elevation: 6,
   },
-  ctaIcon: { width: 20, height: 20 },
-  ctaText: { letterSpacing: 1.5 },
+});
 
-  // Result overlay
-  overlayBg: {
+// ─── ResultOverlay styles ─────────────────────────────────────────────────────
+export const overlayStyles = StyleSheet.create({
+  bg: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(30,11,94,0.92)',
+    backgroundColor: 'rgba(20,5,40,0.88)',
     zIndex: 20,
-    alignItems: 'center', justifyContent: 'center',
-    padding: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
   },
-  overlayCard: {
-    width: '100%', borderRadius: 28,
-    padding: 28, alignItems: 'center',
-    shadowColor: Colors.purple900,
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.5, shadowRadius: 20, elevation: 10,
+  card: {
+    width: '100%',
+    borderRadius: 24,
+    overflow: 'hidden',
   },
-  overlayEmoji: { fontSize: 72, marginBottom: 12 },
-  overlayMsg: { textAlign: 'center', marginBottom: 16, letterSpacing: 0.5 },
-  xpBadge: {
-    backgroundColor: 'rgba(245,158,11,0.2)',
-    borderRadius: 14, paddingHorizontal: 16, paddingVertical: 8,
-    borderWidth: 1.5, borderColor: Colors.gold + '66',
+  strip: {
+    height: 5,
+    width: '100%',
+  },
+  iconCircle: {
+    width: 72,
+    height: 72,
+    borderRadius: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+    marginTop: 4,
+  },
+  iconInner: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  mystCircle: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: Colors.bgMystery,
+    borderWidth: 2,
+    borderColor: Colors.purple400 + '72',
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    marginBottom: 16,
+    marginTop: 4,
+  },
+  mystText: {
+    fontSize: 16,
+    fontWeight: '900',
+    color: Colors.textPlaceholder,
+    letterSpacing: 2,
+  },
+  xpRow: {
+    flexDirection: 'row',
+    gap: 8,
     marginBottom: 20,
   },
-  wrongAnswerBox: {
-    backgroundColor: 'rgba(255,255,255,0.1)',
-    borderRadius: 14, padding: 14,
-    alignItems: 'center', marginBottom: 20, width: '100%',
+  wrongCard: {
+    backgroundColor: 'rgba(255,255,255,0.08)',
+    borderRadius: 14,
+    padding: 16,
+    alignItems: 'center',
+    marginBottom: 20,
+    width: '100%',
   },
   nextBtn: {
     backgroundColor: Colors.white,
-    borderRadius: 20, paddingHorizontal: 32, paddingVertical: 14,
-    shadowColor: '#000', shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15, shadowRadius: 8, elevation: 5,
+    borderRadius: 18,
+    paddingHorizontal: 36,
+    paddingVertical: 14,
+  },
+});
+
+// ─── ShakeTimerIcon styles ────────────────────────────────────────────────────
+export const timerIconStyles = StyleSheet.create({
+  iconWrap: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

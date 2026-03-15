@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import {
   View,
-  Text,
+  Image,
   TouchableOpacity,
   ViewStyle,
   TextStyle,
@@ -26,9 +26,7 @@ export const Header = memo(
     const navigation = useNavigation();
 
     const back = () => {
-      if (backTo) {
-        return backTo();
-      }
+      if (backTo) return backTo();
       return navigation.goBack();
     };
 
@@ -39,7 +37,10 @@ export const Header = memo(
             ? leftComponent
             : showBack && (
                 <TouchableOpacity onPress={back}>
-                  <Text style={styles.back}>Back</Text>
+                  <Image
+                    source={require('@/assets/icons/back.png')}
+                    style={{ width: 20, height: 20, tintColor: '#fff' } as any}
+                  />
                 </TouchableOpacity>
               )}
         </View>
