@@ -66,24 +66,6 @@ export const styles = StyleSheet.create({
     gap: 12,
   },
 
-  // Timer
-  timerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-  },
-  timerTrack: {
-    flex: 1,
-    height: 5,
-    backgroundColor: Colors.purple100,
-    borderRadius: 3,
-    overflow: 'hidden',
-  },
-  timerFill: {
-    height: '100%',
-    borderRadius: 3,
-  },
-
   // Word card
   wordCard: {
     minHeight: 240,
@@ -258,16 +240,5 @@ export const overlayStyles = StyleSheet.create({
     borderRadius: 18,
     paddingHorizontal: 36,
     paddingVertical: 14,
-  },
-});
-
-// ─── ShakeTimerIcon styles ────────────────────────────────────────────────────
-export const timerIconStyles = StyleSheet.create({
-  iconWrap: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });

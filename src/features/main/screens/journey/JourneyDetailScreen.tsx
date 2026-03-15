@@ -21,7 +21,7 @@ import { JOURNEYS, WORDS_BY_JOURNEY, WordItem } from '../../data/data';
 import { styles } from './detailStyles';
 
 const icons = {
-  check:   require('@/assets/icons/check.png'),
+  check: require('@/assets/icons/check.png'),
   speaker: require('@/assets/icons/speaker.png'),
 };
 
@@ -59,14 +59,14 @@ const WordRow = ({ item }: { item: WordItem }) => (
     </View>
 
     {/* Check icon — right */}
-    <Image
-      source={icons.check}
-      style={{
-        width: 20,
-        height: 20,
-        tintColor: item.completed ? Colors.purple500 : Colors.purple200,
-      } as any}
-    />
+    <View style={item.completed ? null : [styles.checkCircle, { borderColor: Colors.purple200 }]}>
+      {item.completed && (
+        <Image
+          source={icons.check}
+          style={{ width: 30, height: 30 } as any}
+        />
+      )}
+    </View>
   </View>
 );
 

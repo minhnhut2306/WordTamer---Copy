@@ -107,4 +107,13 @@ export const styles = StyleSheet.create({
     shadowRadius: 12,
     elevation: 6,
   },
+  checkCircle: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+  },
 });
