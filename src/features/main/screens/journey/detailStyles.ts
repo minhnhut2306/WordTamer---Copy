@@ -1,167 +1,113 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from '@/theme/colors';
 
-export const detailStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.bgPeach,
-  },
+export const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: Colors.bgPage },
 
-  // --- Dotted background ---
-  dotBackground: {
-    position: 'absolute',
-    top: 0, left: 0, right: 0, bottom: 0,
-    zIndex: 0,
+  header: {
+    flexDirection: 'row', alignItems: 'center',
+    paddingHorizontal: 16, height: 56,
+    borderBottomWidth: 1, borderColor: Colors.borderLight,
   },
-  dotRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 7,
-  },
-  dot: {
-    width: 3, height: 3, borderRadius: 1.5,
-    backgroundColor: Colors.pinkDot,
-  },
-
-  statsHeader: {
-    backgroundColor: 'transparent',
-    borderBottomWidth: 0,
-    paddingHorizontal: 12,
-    height: 60,
-  },
-
-  titleHeader: {
-    height: 56,
-    backgroundColor: 'transparent',
-    borderBottomWidth: 0,
-    paddingHorizontal: 16,
-  },
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    letterSpacing: 2,
-  },
+  headerTitle: { letterSpacing: 2 },
   backBtn: {
     width: 36, height: 36, borderRadius: 18,
-    backgroundColor: Colors.white,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: Colors.black,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    backgroundColor: Colors.purple100,
+    alignItems: 'center', justifyContent: 'center',
   },
-  backIcon: { width: 20, height: 20 },
-  titlePill: {
-    flex: 1,
-    height: 42,
-    borderRadius: 21,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: 8,
-  },
-  titlePillText: { letterSpacing: 2 },
+  backIcon: { width: 18, height: 18 },
 
-  scroll: { flex: 1, zIndex: 1 },
-  scrollContent: {
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    gap: 16,
+  statsRow: {
+    paddingHorizontal: 16, paddingVertical: 8,
   },
 
-  goalCard: {
-    backgroundColor: Colors.white,
-    borderRadius: 20,
-    borderWidth: 2,
-    padding: 14,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 14,
-    shadowColor: Colors.black,
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.08,
-    shadowRadius: 8,
-    elevation: 3,
-  },
-  goalPetWrap: {
-    width: 72, height: 72, borderRadius: 36,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-  goalPetImg: { width: 48, height: 48 },
-  goalPetLabel: {},
-  goalInfo: { flex: 1, gap: 6 },
-  goalBadge: {
-    alignSelf: 'flex-start',
-    borderRadius: 10,
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-  },
-  goalMsg: { marginTop: 2 },
-  goalTrack: {
-    height: 8, borderRadius: 4,
-    backgroundColor: Colors.trackBeige,
-    overflow: 'hidden',
-  },
-  goalFill: {
-    height: 8, borderRadius: 4,
-  },
+  scroll: { flex: 1 },
+  scrollContent: { paddingHorizontal: 16, paddingTop: 16, gap: 16 },
 
-  wordList: {
-    backgroundColor: Colors.white,
-    borderRadius: 20,
-    overflow: 'hidden',
-    shadowColor: Colors.black,
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.07,
-    shadowRadius: 8,
-    elevation: 3,
-  },
-  wordRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    gap: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.rowDivider,
-  },
-  speakerBtn: {
-    width: 44, height: 44, borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  speakerIcon: { width: 18, height: 18 },
-  wordText: { flex: 1, gap: 2 },
-  checkCircle: {
-    width: 28, height: 28, borderRadius: 14,
-    borderWidth: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  checkIcon: { width: 14, height: 14 },
+  sectionLabel: { letterSpacing: 2, marginTop: 4 },
 
-  bottomBar: {
-    position: 'absolute',
-    bottom: 0, left: 0, right: 0,
-    paddingHorizontal: 16,
-    paddingBottom: 24,
-    paddingTop: 8,
-    backgroundColor: 'transparent',
+  // Mystery card
+  mystCard: {
+    borderRadius: 22, padding: 16,
+    flexDirection: 'row', alignItems: 'center', gap: 14,
+    shadowColor: Colors.purple700,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.35, shadowRadius: 16, elevation: 8,
+  },
+  mystSilBox: {
+    width: 66, height: 66, alignItems: 'center', justifyContent: 'center',
+    position: 'relative',
+  },
+  mystSilInner: {
+    width: 54, height: 54, borderRadius: 27,
+    backgroundColor: 'rgba(196,181,253,0.2)',
+    alignItems: 'center', justifyContent: 'center',
+    borderWidth: 1.5, borderColor: 'rgba(196,181,253,0.3)',
     zIndex: 1,
   },
-  ctaBtn: {
-    height: 54,
-    borderRadius: 27,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: Colors.black,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 5,
+  mystSilQ: { fontSize: 24, fontWeight: '900', color: 'rgba(255,255,255,0.35)' },
+  mystPetImg: { width: 38, height: 38 },
+  mystRing: {
+    position: 'absolute', width: 64, height: 64, borderRadius: 32,
+    borderWidth: 1.5, borderColor: 'rgba(196,181,253,0.35)',
   },
-  ctaText: { letterSpacing: 1 },
+  mystTagRow: { flexDirection: 'row', marginBottom: 4 },
+  mystTag: {
+    backgroundColor: 'rgba(245,158,11,0.2)',
+    borderRadius: 8, paddingHorizontal: 8, paddingVertical: 2,
+    borderWidth: 1, borderColor: Colors.gold + '44',
+  },
+  mystProgTrack: {
+    height: 6, backgroundColor: 'rgba(255,255,255,0.15)',
+    borderRadius: 3, overflow: 'hidden',
+  },
+  mystProgFill: {
+    height: '100%', backgroundColor: Colors.gold, borderRadius: 3,
+  },
+
+  // Word list
+  wordList: {
+    backgroundColor: Colors.white, borderRadius: 20, overflow: 'hidden',
+    shadowColor: Colors.purple500,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.08, shadowRadius: 10, elevation: 4,
+    borderWidth: 1, borderColor: Colors.borderPurple,
+  },
+  wordRow: {
+    flexDirection: 'row', alignItems: 'center',
+    paddingHorizontal: 14, paddingVertical: 14, gap: 12,
+    borderBottomWidth: 1, borderBottomColor: Colors.borderLight,
+  },
+  speakerBtn: {
+    width: 40, height: 40, borderRadius: 12,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  speakerIcon: { width: 16, height: 16 },
+  memDot: {
+    width: 9, height: 9, borderRadius: 5,
+  },
+  memLabel: {
+    borderRadius: 6, paddingHorizontal: 6, paddingVertical: 2,
+  },
+  checkCircle: {
+    width: 28, height: 28, borderRadius: 14,
+    borderWidth: 2, alignItems: 'center', justifyContent: 'center',
+  },
+  checkIcon: { width: 12, height: 12 },
+
+  // Bottom
+  bottomBar: {
+    position: 'absolute', bottom: 0, left: 0, right: 0,
+    paddingHorizontal: 16, paddingBottom: 28, paddingTop: 12,
+    backgroundColor: Colors.bgPage,
+    borderTopWidth: 1, borderColor: Colors.borderPurple,
+  },
+  ctaBtn: {
+    height: 54, borderRadius: 27,
+    alignItems: 'center', justifyContent: 'center',
+    shadowColor: Colors.purple700,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.4, shadowRadius: 12, elevation: 6,
+  },
+  ctaText: { letterSpacing: 1.5 },
 });

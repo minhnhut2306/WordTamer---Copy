@@ -17,31 +17,44 @@ export interface JourneyItem {
   badgeEmoji: any;
   petReward: any;
   petName: string;
+  // Mystery pet — silhouette hint shown before unlock
+  mysteryHint: string; // emoji hint shown progressively: '?', '🐾', '👁', revealed
 }
 
 export interface WordItem {
   id: string;
   word: string;
   translation: string;
+  phonetic: string;          // e.g. /ˈstеɪʃ(ə)n/
+  partOfSpeech: string;      // e.g. 'danh từ'
   completed: boolean;
+  memoryLevel: number;       // 0–5: 0=new, 5=mastered (drives dot display)
 }
+
+export type MemoryLabel = 'Mới học' | 'Đang học' | 'Thành thạo';
+export const getMemoryLabel = (level: number): MemoryLabel => {
+  if (level === 0) return 'Mới học';
+  if (level >= 4)  return 'Thành thạo';
+  return 'Đang học';
+};
 
 // ─── Journey list ─────────────────────────────────────────────────────────────
 export const JOURNEYS: JourneyItem[] = [
   {
     id: 'station',
     name: 'STATION',
-    subtitle: 'Từ vựng cơ bản',
+    subtitle: 'Nhà ga & hành trình',
     progress: 4,
     total: 10,
-    color: Colors.pink,
-    softColor: Colors.pinkSoft,
+    color: Colors.stationColor,
+    softColor: Colors.stationSoft,
     darkColor: Colors.stationDark,
     state: 'active',
     badge: 'ĐANG MỞ',
     badgeEmoji: require('@/assets/icons/sparkle.png'),
     petReward: require('@/assets/icons/pet01.png'),
     petName: 'Mèo Đêm',
+    mysteryHint: '🐱',
   },
   {
     id: 'kitchen',
@@ -49,14 +62,15 @@ export const JOURNEYS: JourneyItem[] = [
     subtitle: 'Phòng bếp & ẩm thực',
     progress: 0,
     total: 10,
-    color: Colors.purple,
-    softColor: Colors.purpleSoft,
-    darkColor: Colors.purpleDark,
+    color: Colors.kitchenColor,
+    softColor: Colors.kitchenSoft,
+    darkColor: Colors.kitchenDark,
     state: 'active',
     badge: 'BÍ ẨN',
     badgeEmoji: require('@/assets/icons/mystery.png'),
     petReward: require('@/assets/icons/pet02.png'),
     petName: 'Cáo Lửa',
+    mysteryHint: '🦊',
   },
   {
     id: 'forest',
@@ -64,7 +78,7 @@ export const JOURNEYS: JourneyItem[] = [
     subtitle: 'Thiên nhiên hoang dã',
     progress: 10,
     total: 10,
-    color: Colors.forest,
+    color: Colors.forestColor,
     softColor: Colors.forestSoft,
     darkColor: Colors.forestDark,
     state: 'completed',
@@ -72,21 +86,22 @@ export const JOURNEYS: JourneyItem[] = [
     badgeEmoji: require('@/assets/icons/star.png'),
     petReward: require('@/assets/icons/pet03.png'),
     petName: 'Sói Băng',
+    mysteryHint: '🐺',
   },
 ];
 
 // ─── Words per journey ────────────────────────────────────────────────────────
 export const WORDS_BY_JOURNEY: Record<string, WordItem[]> = {
   station: [
-    { id: '1',  word: 'Station',    translation: 'Nhà ga',      completed: true },
-    { id: '2',  word: 'Ticket',     translation: 'Vé tàu',      completed: true },
-    { id: '3',  word: 'Platform',   translation: 'Sân ga',      completed: true },
-    { id: '4',  word: 'Train',      translation: 'Tàu hỏa',     completed: true },
-    { id: '5',  word: 'Luggage',    translation: 'Hành lý',     completed: false },
-    { id: '6',  word: 'Departure',  translation: 'Khởi hành',   completed: false },
-    { id: '7',  word: 'Arrival',    translation: 'Đến nơi',     completed: false },
-    { id: '8',  word: 'Conductor',  translation: 'Nhân viên',   completed: false },
-    { id: '9',  word: 'Delay',      translation: 'Trễ giờ',     completed: false },
-    { id: '10', word: 'Express',    translation: 'Tốc hành',    completed: false },
+    { id: '1',  word: 'Station',   translation: 'Nhà ga',      phonetic: '/ˈsteɪʃ(ə)n/', partOfSpeech: 'danh từ', completed: true,  memoryLevel: 5 },
+    { id: '2',  word: 'Ticket',    translation: 'Vé tàu',      phonetic: '/ˈtɪkɪt/',      partOfSpeech: 'danh từ', completed: true,  memoryLevel: 4 },
+    { id: '3',  word: 'Platform',  translation: 'Sân ga',      phonetic: '/ˈplatfɔːm/',   partOfSpeech: 'danh từ', completed: true,  memoryLevel: 3 },
+    { id: '4',  word: 'Train',     translation: 'Tàu hỏa',    phonetic: '/treɪn/',        partOfSpeech: 'danh từ', completed: true,  memoryLevel: 5 },
+    { id: '5',  word: 'Luggage',   translation: 'Hành lý',    phonetic: '/ˈlʌɡɪdʒ/',     partOfSpeech: 'danh từ', completed: false, memoryLevel: 0 },
+    { id: '6',  word: 'Departure', translation: 'Khởi hành',  phonetic: '/dɪˈpɑːtʃə/',   partOfSpeech: 'danh từ', completed: false, memoryLevel: 1 },
+    { id: '7',  word: 'Arrival',   translation: 'Đến nơi',    phonetic: '/əˈraɪv(ə)l/',  partOfSpeech: 'danh từ', completed: false, memoryLevel: 2 },
+    { id: '8',  word: 'Conductor', translation: 'Nhân viên',  phonetic: '/kənˈdʌktə/',   partOfSpeech: 'danh từ', completed: false, memoryLevel: 0 },
+    { id: '9',  word: 'Delay',     translation: 'Trễ giờ',    phonetic: '/dɪˈleɪ/',      partOfSpeech: 'danh từ', completed: false, memoryLevel: 1 },
+    { id: '10', word: 'Express',   translation: 'Tốc hành',   phonetic: '/ɪkˈsprɛs/',    partOfSpeech: 'tính từ', completed: false, memoryLevel: 3 },
   ],
 };
